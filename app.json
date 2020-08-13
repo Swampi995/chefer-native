@@ -1,0 +1,62 @@
+{
+  "expo": {
+    "name": "Car Reminder",
+    "slug": "car-reminder",
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "10.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#212631"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.swampi.car.reminder",
+      "versionCode": 10,
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.swampi.car.reminder",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "useNextNotificationsApi": true,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-5724098793803537~5611686386"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.swampi.car.reminder",
+      "buildNumber": "10.0.0",
+      "supportsTablet": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": "NO",
+        "NSLocationWhenInUseUsageDescription": "This app uses your GPS to provide you the speed of your vehicle."
+      },
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-5724098793803537~4314631177"
+      }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "swampi-apps",
+            "project": "car-reminder",
+            "authToken": "a2bae6bdaaf34a988e7764269b9f41bf2a6e21a93202457eaf00ae1e1a60587a"
+          }
+        }
+      ]
+    }
+  }
+}
