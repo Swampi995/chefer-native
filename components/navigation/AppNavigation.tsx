@@ -2,6 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import React from 'react';
 import HomeScreen from '../screens/Home';
+import AddIngredientScreen from '../screens/AddIngredient';
 import { NAVIGATION_ROUTES } from './constants';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -22,6 +23,14 @@ const AppNavigator = createMaterialTopTabNavigator(
       screen: SettingsScreen,
       navigationOptions: {
         title: NAVIGATION_ROUTES.SETTINGS.displayName,
+        tabBarIcon: ({ tintColor }) =>
+          <MaterialCommunityIcons name="settings" size={27} color={tintColor}/>
+      },
+    },
+    [NAVIGATION_ROUTES.ADDINGREDIENT.route]: {
+      screen: AddIngredientScreen,
+      navigationOptions: {
+        title: NAVIGATION_ROUTES.ADDINGREDIENT.displayName,
         tabBarIcon: ({ tintColor }) =>
           <MaterialCommunityIcons name="settings" size={27} color={tintColor}/>
       },

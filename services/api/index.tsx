@@ -7,5 +7,5 @@ export interface IngrediendProps {
 }
 
 export function getIngredient(): Promise<IngrediendProps> {
-  return Server.GET('http://localhost:5000/api/test-integration') as any;
+  return Server.GET('http://192.168.0.179:5000/api/test-integration') as any;
 }
