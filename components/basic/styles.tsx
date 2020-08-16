@@ -9,14 +9,14 @@ const borderShadow = {
   elevation: 15,
 };
 
-const BACKGROUND_LIGHT = '#363e4a';
+const BACKGROUND_LIGHT = '#ffffff';
 const BACKGROUND_DARK = '#212631';
 const BACKGROUND_MEDIUM = '#2c313e';
 
 const SHADOW_DARK = '#131417';
 
 const TEXT_LIGHT = '#d0d1d2';
-const TEXT_DARK = '#84868f';
+const TEXT_DARK = '#000000';
 
 const ACCENT_RED = '#b52227';
 const ACCENT_BLUE = '#4185c9';

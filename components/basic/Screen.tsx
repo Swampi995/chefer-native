@@ -12,5 +12,5 @@ export default function Screen(props: React.ComponentProps<any>) {
 
 const style: StyleProp<ViewStyle> = {
   flex: 1,
-  backgroundColor: basicStyle.BACKGROUND_DARK
+  backgroundColor: basicStyle.BACKGROUND_LIGHT
 };
