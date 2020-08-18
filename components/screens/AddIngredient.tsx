@@ -1,30 +1,49 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, TextInput, ImageBackground } from 'react-native';
+import { View, StyleSheet, TextInput } from 'react-native';
 import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import * as basic from '../basic';
 import { carConnect, CarReduxProps } from '../../redux/connect/carConnect';
-import * as notifications from '../../services/notifications';
 import * as api from '../../services/api';
 
 interface AddIngredientScreenProps extends NavigationTabScreenProps, CarReduxProps {
 }
 
+interface AddIngredientState {
+  name: string;
+  price: string;
+  ingredient: api.IngrediendProps;
+  measurementUnit: api.QuantifiedIngrediendProps['measurementUnit'],
+  amount: number,
+}
+
 class AddIngredientScreen extends React.Component<AddIngredientScreenProps> {
-  state = {
+  state: Readonly<AddIngredientState> = {
     name: '',
-    price: ''
+    price: '',
+    ingredient: null,
+    measurementUnit: 'G',
+    amount: 192,
  }
- handleName = (text) => {
-    this.setState({ name: text })
+
+ handler = (type: keyof AddIngredientState) => (value: string) => {
+   this.setState({ [type]: value });
  }
- handlePrice = (text) => {
-    this.setState({ price: text })
+
+ addIngredient = async () => {
+   const ingredient = await api.addIngredient(this.state.name, parseInt(this.state.price, 10));
+   this.setState({ ingredient });
  }
- addIngredient = (name, pass) => {
-    alert('name: ' + name + ' price: ' + pass)
+
+ addQuantifiedIngredient = () => {
+   if (!this.state.ingredient) {
+     alert('Add an ingredient first!');
+   } else {
+     api.addQuantifiedIngredient(this.state.ingredient, this.state.amount, this.state.measurementUnit);
+   }
  }
 
  render() {
+   const { ingredient } = this.state;
     return (
       <basic.Screen>
        <View style = {styles.header}>
@@ -33,23 +52,23 @@ class AddIngredientScreen extends React.Component<AddIngredientScreenProps> {
              placeholder = "Ingredient Name"
              placeholderTextColor = "lightgray"
              autoCapitalize = "none"
-             onChangeText = {this.handleName}/>
-          
+             value={this.state.name}
+             onChangeText = {this.handler('name')}/>
           <TextInput style = {styles.input}
              underlineColorAndroid = "transparent"
              placeholder = "Ingredient Price"
              placeholderTextColor = "lightgray"
              autoCapitalize = "none"
-             onChangeText = {this.handlePrice}/>
-          
-          <TouchableOpacity
-             style = {styles.submitButton}
-             onPress = {
-                () => this.addIngredient(this.state.name, this.state.price)
-             }>
-             <Text style = {styles.submitButtonText}> Submit </Text>
-          </TouchableOpacity>
-          </View>
+             value={this.state.price}
+             onChangeText = {this.handler('price')}/>
+          <basic.Button onPress={this.addIngredient} label={'Submit'}/>
+        </View>
+        <View>
+          <basic.CustomText label={ingredient && ingredient.id} />
+          <basic.CustomText label={ingredient && ingredient.name} />
+          <basic.CustomText label={ingredient && ingredient.price} />
+          <basic.PrimaryButton onPress={this.addQuantifiedIngredient}/>
+        </View>
       </basic.Screen>
     )
  }
@@ -62,7 +81,7 @@ const styles = StyleSheet.create({
     flex: 3,
     alignItems: 'center',
     marginBottom: 30,
-    padding: 20    
+    padding: 20
   },
   input: {
     textAlign:'left',

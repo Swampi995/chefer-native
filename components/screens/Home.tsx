@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import * as basic from '../basic';
 import { carConnect, CarReduxProps } from '../../redux/connect/carConnect';
-import * as notifications from '../../services/notifications';
+// import * as notifications from '../../services/notifications';
 import * as api from '../../services/api';
 
 interface HomeProps extends NavigationTabScreenProps, CarReduxProps {
@@ -19,10 +19,10 @@ class StatsScreen extends React.Component<HomeProps, HomeState> {
     ingredient: null,
   }
 
-  setNotification = async () => {
-    const response = await notifications.setNotification();
-    console.log(` ==== response ==== ${response}`)
-  }
+  // setNotification = async () => {
+  //   const response = await notifications.setNotification();
+  //   console.log(` ==== response ==== ${response}`)
+  // }
 
   componentDidMount() {
     this.fetchAsync();
@@ -39,7 +39,7 @@ class StatsScreen extends React.Component<HomeProps, HomeState> {
       <basic.Screen>
         <View style={styles.header}>
           <basic.CustomText label={'HOME'} />
-          <basic.PrimaryButton onPress={this.setNotification} />
+          {/*<basic.PrimaryButton onPress={this.setNotification} />*/}
           <basic.CustomText label={this.state.ingredient && this.state.ingredient.name} />
           <basic.CustomText label={this.state.ingredient && this.state.ingredient.id} />
           <basic.CustomText label={this.state.ingredient && this.state.ingredient.price} />

@@ -6,20 +6,30 @@ export interface IngrediendProps {
   price: number;
 }
 
-let data = {
-  method: 'POST',
-  credentials: 'same-origin',
-  mode: 'same-origin',
-  body: JSON.stringify({
-    appoid: appo_id
-  }),
-  headers: {
-    'Accept':       'application/json',
-    'Content-Type': 'application/json',
-  }
+export interface QuantifiedIngrediendProps {
+  ingredient: IngrediendProps;
+  amount: number;
+  measurementUnit: 'G' | 'L' | 'ML' | 'KG';
 }
 
 export function getIngredient(): Promise<IngrediendProps> {
-  return Server.GET('http://192.168.0.179:5000/api/test-integration') as any;
+  return Server.GET('/api/test-integration') as any;
 }
 
+export function addIngredient(name: string, price: number): Promise<Response> {
+  const body = {
+    name,
+    price,
+  }
+  return Server.POST('/api/ingredient/insert', JSON.stringify(body));
+}
+
+export function addQuantifiedIngredient(ingredient: IngrediendProps, amount: number,
+   measurementUnit: QuantifiedIngrediendProps['measurementUnit']): Promise<Response> {
+  const body: QuantifiedIngrediendProps = {
+    ingredient,
+    amount,
+    measurementUnit,
+  }
+  return Server.POST('/api/quantified-ingredient/insert', JSON.stringify(body));
+}
