@@ -61,13 +61,12 @@ class AddIngredientScreen extends React.Component<AddIngredientScreenProps> {
              autoCapitalize = "none"
              value={this.state.price}
              onChangeText = {this.handler('price')}/>
-          <basic.Button onPress={this.addIngredient} label={'Submit'}/>
         </View>
         <View>
           <basic.CustomText label={ingredient && ingredient.id} />
           <basic.CustomText label={ingredient && ingredient.name} />
           <basic.CustomText label={ingredient && ingredient.price} />
-          <basic.PrimaryButton onPress={this.addQuantifiedIngredient}/>
+          <basic.Button onPress={this.addQuantifiedIngredient} label={'Add Ingredient'}/>
         </View>
       </basic.Screen>
     )

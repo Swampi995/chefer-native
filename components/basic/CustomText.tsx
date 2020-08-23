@@ -12,7 +12,7 @@ interface TextBoldProps {
   size?: number;
 }
 
-export function CustomText({ label, size = 18, bold = false, color = 'light' }: TextBoldProps) {
+export function CustomText({ label, size = 18, bold = false,  color = 'dark' }: TextBoldProps) {
   return (
     <Text style={styles(size, bold, color).text}>
       {label}

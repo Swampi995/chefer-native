@@ -44,17 +44,17 @@ const AppNavigator = createMaterialTopTabNavigator(
       showIcon: true,
       showLabel: false,
       allowFontScaling: false,
-      activeTintColor: basicStyle.TEXT_LIGHT,
-      inactiveTintColor: basicStyle.TEXT_DARK,
+      activeTintColor: basicStyle.TEXT_DARK,
+      inactiveTintColor: basicStyle.TEXT_LIGHT,
       iconStyle: {
         height: 30,
         width: 30,
       },
       indicatorStyle: {
-        backgroundColor: basicStyle.BACKGROUND_DARK,
+        backgroundColor: basicStyle.BACKGROUND_LIGHT,
       },
       style: {
-        backgroundColor: basicStyle.BACKGROUND_DARK,
+        backgroundColor: basicStyle.BACKGROUND_LIGHT,
       }
     },
   }

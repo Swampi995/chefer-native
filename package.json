@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-navigation/drawer": "^5.9.0",
     "@types/react-native-vector-icons": "^6.4.5",
     "@types/react-redux": "^7.1.9",
     "@types/shortid": "0.0.29",
@@ -18,9 +19,11 @@
     "expo-notifications": "^0.5.0",
     "expo-store-review": "~2.1.2",
     "expo-updates": "~0.2.8",
+    "native-base": "^2.13.14",
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native-elements": "^2.2.1",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-modal": "^11.5.6",
     "react-native-reanimated": "~1.9.0",
