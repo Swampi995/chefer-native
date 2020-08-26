@@ -3,8 +3,9 @@ import { View, StyleSheet } from 'react-native';
 import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import * as basic from '../basic';
 import { carConnect, CarReduxProps } from '../../redux/connect/carConnect';
-// import * as notifications from '../../services/notifications';
 import * as api from '../../services/api';
+import SideMenu from 'react-native-side-menu';
+import BurgerMenu from '../basic/BurgerMenu';
 
 interface HomeProps extends NavigationTabScreenProps, CarReduxProps {
 }
@@ -35,6 +36,7 @@ class StatsScreen extends React.Component<HomeProps, HomeState> {
   }
 
   render() {
+
     return (
       <basic.Screen>
         <View style={styles.header}>

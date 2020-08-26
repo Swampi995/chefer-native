@@ -1,4 +1,4 @@
-const SERVER_URL = 'http://localhost:5000';
+const SERVER_URL = 'http://192.168.0.179:5000';
 
 export async function GET(url: string): Promise<Response> {
   const response = await fetch(`${SERVER_URL}${url}`);
