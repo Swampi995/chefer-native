@@ -1,6 +1,6 @@
 
 export const HOME_ROUTE = 'home';
-export const SETTINGS_ROUTE = 'settings';
+export const DISH_DETAILS_ROUTE = 'settings';
 export const ADDINGREDIENT_ROUTE = 'addIngredient';
 
 export const NAVIGATION_ROUTES = {
@@ -8,9 +8,9 @@ export const NAVIGATION_ROUTES = {
     route: HOME_ROUTE,
     displayName: 'Home',
   },
-  SETTINGS: {
-    route: SETTINGS_ROUTE,
-    displayName: 'Settings',
+  DISHDETAILS: {
+    route: DISH_DETAILS_ROUTE,
+    displayName: 'DishDetails',
   },
   ADDINGREDIENT: {
     route: ADDINGREDIENT_ROUTE,
