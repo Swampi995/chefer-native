@@ -7,7 +7,7 @@ import { NAVIGATION_ROUTES } from './constants';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import * as basicStyle from '../basic/styles';
-import SettingsScreen from '../screens/Settings';
+import SettingsScreen from '../screens/DishDetails';
 
 const AppNavigator = createMaterialTopTabNavigator(
   {
@@ -19,10 +19,10 @@ const AppNavigator = createMaterialTopTabNavigator(
           <IconEntypo name="stopwatch" size={25} color={tintColor}/>
       },
     },
-    [NAVIGATION_ROUTES.SETTINGS.route]: {
+    [NAVIGATION_ROUTES.DISHDETAILS.route]: {
       screen: SettingsScreen,
       navigationOptions: {
-        title: NAVIGATION_ROUTES.SETTINGS.displayName,
+        title: NAVIGATION_ROUTES.DISHDETAILS.displayName,
         tabBarIcon: ({ tintColor }) =>
           <MaterialCommunityIcons name="settings" size={27} color={tintColor}/>
       },
