@@ -2,10 +2,9 @@ import React from 'react';
 import { View, StyleSheet, TextInput } from 'react-native';
 import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import * as basic from '../basic';
-import { carConnect, CarReduxProps } from '../../redux/connect/carConnect';
 import * as api from '../../services/api';
 
-interface AddIngredientScreenProps extends NavigationTabScreenProps, CarReduxProps {
+interface AddIngredientScreenProps extends NavigationTabScreenProps {
 }
 
 interface AddIngredientState {
@@ -73,7 +72,7 @@ class AddIngredientScreen extends React.Component<AddIngredientScreenProps> {
  }
 }
 
-export default carConnect(AddIngredientScreen);
+export default AddIngredientScreen;
 
 const styles = StyleSheet.create({
   header: {

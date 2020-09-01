@@ -4,6 +4,7 @@ export interface IngrediendProps {
   id: number;
   name: string;
   price: number;
+  imageBase64: string;
 }
 
 export interface QuantifiedIngrediendProps {
@@ -13,7 +14,7 @@ export interface QuantifiedIngrediendProps {
 }
 
 export function getIngredient(): Promise<IngrediendProps> {
-  return Server.GET('/api/test-integration') as any;
+  return Server.GET('/api/get-img?id=1') as any;
 }
 
 export function addIngredient(name: string, price: number): Promise<Response> {

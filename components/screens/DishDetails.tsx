@@ -3,9 +3,8 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import * as basic from '../basic';
 import * as basicStyles from '../basic/styles';
-import { carConnect, CarReduxProps } from '../../redux/connect/carConnect';
 
-interface SettingsScreenProps extends NavigationTabScreenProps, CarReduxProps {
+interface SettingsScreenProps extends NavigationTabScreenProps {
 }
 
 const dish = {
@@ -35,7 +34,7 @@ class SettingsScreen extends React.Component<SettingsScreenProps> {
   }
 }
 
-export default carConnect(SettingsScreen);
+export default SettingsScreen;
 
 const styles = StyleSheet.create({
   dish: {

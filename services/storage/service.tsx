@@ -1,6 +1,6 @@
 import * as storage from './';
 
-export async function storeCar(car: any): Promise<void> {
+export async function storeData(data: any): Promise<void> {
   // const pastRuns = await storage.retrieveData<storage.PastRunsObject>(storage.PAST_RUNS);
   // let updatedRuns: storage.PastRunsObject;
   // if (!pastRuns) {

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import carReducer from './carReducer';
+import searchReducer from './searchReducer';
 import appReducer from './appReducer';
 
 const rootReducer = combineReducers({
   appReducer,
-  carReducer,
+  searchReducer,
 });
 
 export default rootReducer;
