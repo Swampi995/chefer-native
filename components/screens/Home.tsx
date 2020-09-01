@@ -4,8 +4,7 @@ import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import * as basic from '../basic';
 import { carConnect, CarReduxProps } from '../../redux/connect/carConnect';
 import * as api from '../../services/api';
-import SideMenu from 'react-native-side-menu';
-import BurgerMenu from '../basic/BurgerMenu';
+import DishList from './home/DishList';
 
 interface HomeProps extends NavigationTabScreenProps, CarReduxProps {
 }
@@ -46,6 +45,9 @@ class StatsScreen extends React.Component<HomeProps, HomeState> {
           <basic.CustomText label={this.state.ingredient && this.state.ingredient.id} />
           <basic.CustomText label={this.state.ingredient && this.state.ingredient.price} />
         </View>
+        <View style={styles.list}>
+          <DishList />
+        </View>
       </basic.Screen>
     );
   }
@@ -55,9 +57,10 @@ export default carConnect(StatsScreen);
 
 const styles = StyleSheet.create({
   header: {
-    flex: 3,
+    flex: 1,
     alignItems: 'center',
-    marginTop: 20,
-    padding: 20,
+  },
+  list: {
+    flex: 1,
   },
 });

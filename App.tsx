@@ -7,7 +7,7 @@ import Main from './components/Main';
 import * as basicStyle from './components/basic/styles';
 import reducers from './redux/reducers';
 import BurgerMenu from './components/basic/BurgerMenu';
-import { Header } from 'react-native-elements';
+import AppNavigator from './components/navigation/AppNavigation';
 import { Left, Right, Icon, Root } from 'native-base';
 
 interface AppProps {
@@ -45,8 +45,8 @@ export default class App extends React.Component<AppProps, AppState> {
         <SafeAreaView style={{ flex: 1, backgroundColor: basicStyle.BACKGROUND_DARK }}>
           <View style={styles.container}>
             <Provider store={store}>
-              {this.state.fontLoaded && <BurgerMenu/>}
               <Main />
+              {this.state.fontLoaded && <AppNavigator/>}
             </Provider>
           </View>
         </SafeAreaView>
