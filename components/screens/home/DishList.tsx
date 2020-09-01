@@ -1,11 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import * as basic from '../../basic';
 import * as basicStyles from '../../basic/styles';
-import { carConnect, CarReduxProps } from '../../../redux/connect/carConnect';
 
-interface DishListProps extends NavigationTabScreenProps, CarReduxProps {
+interface DishListProps {
 }
 
 class DishList extends React.Component<DishListProps> {
@@ -21,7 +19,7 @@ class DishList extends React.Component<DishListProps> {
   }
 }
 
-export default carConnect(DishList);
+export default DishList;
 
 const styles = StyleSheet.create({
   header: {

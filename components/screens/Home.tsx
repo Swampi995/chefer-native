@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import * as basic from '../basic';
-import { carConnect, CarReduxProps } from '../../redux/connect/carConnect';
 import * as api from '../../services/api';
 import DishList from './home/DishList';
+import HomeHeader from './home/HomeHeader';
 
-interface HomeProps extends NavigationTabScreenProps, CarReduxProps {
+interface HomeProps extends NavigationTabScreenProps {
 }
 
 interface HomeState {
@@ -25,25 +25,22 @@ class StatsScreen extends React.Component<HomeProps, HomeState> {
   // }
 
   componentDidMount() {
-    this.fetchAsync();
+    // this.fetchAsync();
   }
 
   fetchAsync = async () => {
     const reponse = await api.getIngredient();
-    console.log(reponse);
     this.setState({ ingredient: reponse });
   }
 
   render() {
-
+    const { ingredient } = this.state;
     return (
       <basic.Screen>
         <View style={styles.header}>
-          <basic.CustomText label={'HOME'} />
-          {/*<basic.PrimaryButton onPress={this.setNotification} />*/}
-          <basic.CustomText label={this.state.ingredient && this.state.ingredient.name} />
-          <basic.CustomText label={this.state.ingredient && this.state.ingredient.id} />
-          <basic.CustomText label={this.state.ingredient && this.state.ingredient.price} />
+          <HomeHeader />
+          {ingredient && <Image style={{ width: 150, height: 150 }}
+            source={{ uri: `data:image/gif;base64,${ingredient.imageBase64}` }} />}
         </View>
         <View style={styles.list}>
           <DishList />
@@ -53,12 +50,11 @@ class StatsScreen extends React.Component<HomeProps, HomeState> {
   }
 }
 
-export default carConnect(StatsScreen);
+export default StatsScreen;
 
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    alignItems: 'center',
   },
   list: {
     flex: 1,

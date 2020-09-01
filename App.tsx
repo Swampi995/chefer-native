@@ -6,9 +6,7 @@ import { createStore } from 'redux';
 import Main from './components/Main';
 import * as basicStyle from './components/basic/styles';
 import reducers from './redux/reducers';
-import BurgerMenu from './components/basic/BurgerMenu';
 import AppNavigator from './components/navigation/AppNavigation';
-import { Left, Right, Icon, Root } from 'native-base';
 
 interface AppProps {
 }
@@ -41,8 +39,8 @@ export default class App extends React.Component<AppProps, AppState> {
 
     return (
       <React.Fragment>
-        <SafeAreaView style={{ flex: 0, backgroundColor: basicStyle.BACKGROUND_DARK }} />
-        <SafeAreaView style={{ flex: 1, backgroundColor: basicStyle.BACKGROUND_DARK }}>
+        <SafeAreaView style={{ flex: 0, backgroundColor: basicStyle.BACKGROUND_LIGHT }} />
+        <SafeAreaView style={{ flex: 1, backgroundColor: basicStyle.BACKGROUND_LIGHT }}>
           <View style={styles.container}>
             <Provider store={store}>
               <Main />

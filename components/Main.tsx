@@ -11,23 +11,14 @@ import React from 'react';
 // });
 
 import { appConnect, AppReduxProps } from '../redux/connect/appConnect';
-import { carConnect, CarReduxProps } from '../redux/connect/carConnect';
-import * as storage from '../services/storage';
-import * as carStorage from '../services/storage/car';
 
-interface MainProps extends CarReduxProps, AppReduxProps {
+interface MainProps extends AppReduxProps {
 }
 
 class Main extends React.Component<MainProps> {
 
 
   async componentDidMount() {
-     const selectedKey = await storage.retrieveData<string>(carStorage.SELECTED_KEY);
-     const isMetric = await storage.retrieveData<boolean>(storage.IS_METRIC_KEY);
-
-     this.props.setSelectedCar(selectedKey || 'default');
-     this.props.setIsMetric(isMetric === undefined ? true : isMetric);
-
      // let result = await Permissions.askAsync(Permissions.NOTIFICATIONS);
      // Notifications.addNotificationReceivedListener((notification) => {
      //   console.log(notification);
@@ -45,4 +36,4 @@ class Main extends React.Component<MainProps> {
   }
 }
 
-export default appConnect(carConnect(Main));
+export default appConnect(Main);

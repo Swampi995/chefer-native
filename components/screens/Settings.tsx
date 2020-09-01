@@ -2,9 +2,8 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import * as basic from '../basic';
-import { carConnect, CarReduxProps } from '../../redux/connect/carConnect';
 
-interface SettingsScreenProps extends NavigationTabScreenProps, CarReduxProps {
+interface SettingsScreenProps extends NavigationTabScreenProps {
 }
 
 class SettingsScreen extends React.Component<SettingsScreenProps> {
@@ -20,7 +19,7 @@ class SettingsScreen extends React.Component<SettingsScreenProps> {
   }
 }
 
-export default carConnect(SettingsScreen);
+export default SettingsScreen;
 
 const styles = StyleSheet.create({
   header: {
