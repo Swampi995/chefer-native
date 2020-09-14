@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     backgroundColor: basicStyles.BACKGROUND_MEDIUM,
   },
   image: {
-    width: 100, 
+    width: 100,
     height: 100
   },
   itemList: {
